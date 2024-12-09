@@ -1,3 +1,7 @@
 The app fetches the live Bitcoin price every minute from a public API, processes it according to a specific pattern, and draws a line on the canvas accordingly.
 At the end of each day, the script automatically uploads the price values to a database using a cron job.
 These data are then accessible in the archive section and can be retrieved later.
+
+___
+
+The abstraction of Jackson Pollock's drip painting style somehow evoked the chaotic yet structured movements of cryptocurrency markets. At first glance random, Pollock's art was guided by an underlying order, as gravity, paint viscosity, and his physical gestures all played a role in shaping the composition. Breaking away from representational art, the process itself became as important as the final work. Initially valued for its radicalism, his paintings quickly turned into investment opportunities, with their value reaching record highs in contemporary art and disconnecting from any intrinsic creative worth. Bitcoin was revolutionary in its own way. Born out of a desire for decentralized financial autonomy, transparency, and peer-to-peer transactions, it dematerialized the concept of currency to a new level. As a highly volatile asset, it didn't take long for it to lose its essence, becoming a perfect object of speculation. Although the visual representation of its price movements on the screen seems erratic, it is tightly linked to the rational flow of its transactions - a blend of order and chaos.
