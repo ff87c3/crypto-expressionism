@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/serverless-upload",
+      "schedule": "00 21 * * *"
+    }
+  ]
+}

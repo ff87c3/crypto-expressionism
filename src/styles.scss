@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css?family=Space+Mono:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  --grey: rgb(206, 206, 206);
+  --secondGrey: rgb(166, 166, 166);
+  --mainColor: #808080;
+  --neutral: #b0e0e6;
+  --neutral02: #d8e7e9;
+
+  --green: #00d457;
+  --red: #ff0000;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono";
+  font-family: "Inter", sans-serif;
+
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
+  height: 100%;
+  width: 100%;
+
+  padding: 0;
+  margin: 0;
+  background-color: var(--mainColor);
+  transition: background-color 0.25s ease-in-out;
+}
+
+#info-button {
+  bottom: 1%;
+  left: 1%;
+  position: fixed;
+  font-size: 2vw;
+
+  line-height: normal;
+
+  color: rgb(63, 63, 63);
+  opacity: 0.5;
+
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 7vw;
+  }
+}
+
+#text {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+
+  opacity: 0;
+  visibility: hidden;
+
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  transition: opacity 0.15s ease-in-out;
+
+  pointer-events: none;
+
+  text-align: justify;
+
+  font-size: 1.3vw;
+
+  color: #d8e7e9;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
+  p {
+    width: 60%;
+
+    @media (max-width: 768px) {
+      width: 85%;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3vw;
+  }
+}
+
+#hovered-date {
+  position: fixed;
+  top: 0%;
+  left: 1%;
+  font-size: 3vw;
+  color: rgb(63, 63, 63);
+}
+
+#switch {
+  position: fixed;
+  top: 0%;
+  right: 1%;
+  font-size: 3vw;
+
+  transition: all 0.5s ease-in-out;
+  color: rgb(63, 63, 63);
+  opacity: 0.5;
+  text-decoration: none;
+
+  line-height: normal;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 8vw;
+  }
+}
+
+#priceTag {
+  position: fixed;
+  font-size: 10vw;
+  font-size: 10vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-weight: 300;
+  margin: 0;
+
+  color: rgba(55, 55, 55, 0.609);
+
+  line-height: 1;
+
+  mix-blend-mode: difference;
+
+  opacity: 0;
+
+  transition: opacity 0.25s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 30vw;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  line-height: 1;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+
+  @media (max-width: 768px) {
+  }
+}
+
+nav {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+
+  a {
+    color: #999999;
+    text-decoration: none;
+  }
+
+  .selected {
+    color: #ffffff;
+  }
+}
+
+.timer {
+  position: fixed;
+
+  top: 0;
+  left: 1%;
+  font-size: 5vw;
+  font-size: 10vw;
+  color: rgb(16, 16, 16);
+
+  line-height: 1;
+  mix-blend-mode: difference;
+
+  @media (max-width: 768px) {
+    font-size: 20vw;
+  }
+}
+
+.loader {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--mainColor);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.loader.hidden {
+  -webkit-animation: fadeOut 1s;
+  animation: fadeOut 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+}
+
+#info {
+  position: fixed;
+  font-size: 2vw;
+  bottom: 1%;
+  left: 1%;
+  color: rgb(185, 185, 185);
+  line-height: 1;
+}
+
+#live,
+#archive {
+  bottom: 1%;
+  right: 1%;
+  position: fixed;
+  line-height: 1;
+
+  a {
+    color: rgb(63, 63, 63);
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 4vw;
+
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 8vw;
+    }
+  }
+}
+
+#today {
+  bottom: 1%;
+  right: 15%;
+  position: fixed;
+  font-size: 4vw;
+  text-decoration: none;
+  color: grey;
+  line-height: 1;
+  transition: all 0.5s ease-in-out;
+
+  a {
+    color: rgb(185, 185, 185);
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+#loading-canvas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2vw;
+  text-decoration: none;
+
+  transition: opacity 1s ease-out;
+  color: var(--secondGrey);
+  width: 100%;
+  height: 100%;
+  background-color: var(--mainColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+
+  @media (max-width: 768px) {
+    font-size: 4vw;
+  }
+}
+
+#archive-dates {
+  top: 50%;
+  left: 1%;
+  transform: translate(0, -50%);
+  position: fixed;
+
+  list-style-type: none;
+  padding: 0;
+
+  margin: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  li {
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    color: rgb(66, 66, 66);
+
+    opacity: 0;
+    font-size: 1.3vw;
+    font-size: 2.5vw;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 5vw;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 50%;
+    padding-left: 10px;
+  }
+}
+
+.hovered {
+  opacity: 1 !important;
+}
+
+select {
+  top: 0;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+}
+
+#fade-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mainColor);
+  opacity: 0;
+  transition: opacity 1s;
+  z-index: 1000;
+  pointer-events: none;
+}
